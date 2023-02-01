@@ -2,12 +2,11 @@ const mysql = require('mysql');
 const pool = require('../sql/connection');
 const { handleSQLError } = require('../sql/error');
 
-const getAllEmployees = (req, res) => {
-    pool.query("SELECT * FROM employees", (err, rows) => {
-        if (err) return handleSQLError(res, err)
+const getEmployees = (req, res) => {
+    mysql.query("SELECT * FROM employees", (rows) => {
         return res.json(rows);
     } )
 }
 
 
-module.exports = {getAllEmployees}
+module.exports = {getEmployees}
