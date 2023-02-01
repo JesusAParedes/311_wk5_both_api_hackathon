@@ -3,7 +3,10 @@ const pool = require('../mysql/connection');
 const { errorOccurred } = require('../mysql/error');
 
 const getEmployees = (req, res) => {
-    res.send('getting employees...')
+    pool.query("", (err, rows) => {
+        if (err) return errorOccurred(res, err)
+        return res.json(rows);
+    })
 };
 
 const getEmployeesById = (req, res) => {
