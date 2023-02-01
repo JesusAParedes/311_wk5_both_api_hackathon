@@ -1,11 +1,10 @@
 {
   "name": "311_wk5_both_api_hackathon",
   "version": "1.0.0",
-  "description": "Hackathon project",
+  "description": "Read this ENTIRE document before beginning work.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
