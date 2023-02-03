@@ -1,15 +1,13 @@
-const express = require('express')
+const express = require('express');
+const employeesController = require('../controllers/employees');
 const router = express.Router();
-//Employees Controller File
-const employeesController = require('../controllers/employees.js')
-
-    //Default Route
+//Default Route
 router.get('/', employeesController.defaultRoute)
-    //GET all employees
+//GET all employees
 router.get('/employees', employeesController.getEmployees)
-    //GET employees by ID
+//GET employees by ID
 router.get('/employees/:id', employeesController.getEmployeesById)
-    //GET employees by First Name
+//GET employees by First Name
 router.get('/employees/:fname', employeesController.getEmployeesByFirstName)
 
 module.exports = router;
