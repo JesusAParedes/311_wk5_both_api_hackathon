@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
-const employeesRouter = require('./routes/employees');
-
-
-app.use('/employees', employeesRouter);
-
-app.get('/', (req,res) => {
-    res.send('Welcome to our API')
-})
+//Import Route Folder
+const routes = require('./routes')
+//Our body parser
+app.use(express.json())
+//Use Route Folder
+app.use(routes)
 
 app.listen('4001', () => {
     console.log('Listening on port 4001')
