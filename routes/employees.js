@@ -9,5 +9,7 @@ router.get('/employees', employeesController.getEmployees)
 router.get('/employees/:id', employeesController.getEmployeesById)
 //GET employees by First Name
 router.get('/employees/:fname', employeesController.getEmployeesByFirstName)
+//PUT employee , Adding employee
+router.post('/', employeesController.addEmployee)
 
 module.exports = router;
