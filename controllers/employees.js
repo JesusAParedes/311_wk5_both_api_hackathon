@@ -1,12 +1,30 @@
 const mysql = require('mysql');
-const pool = require('../sql/connection');
-const { handleSQLError } = require('../sql/error');
+const pool = require('../mysql/connection');
+const { errorOccurred } = require('../mysql/error');
 
-const getEmployees = (req, res) => {
-    mysql.query("SELECT * FROM employees", (rows) => {
-        return res.json(rows);
-    } )
+const defaultRoute = (req,res) => {
+    res.send('Welcome to our API');
 }
 
+const getEmployees = (req, res) => {
+    pool.query("SELECT * FROM employees", (err, rows) => {
+        if (err) return errorOccurred(res, err)
+        return res.json(rows);
+    })
+};
 
-module.exports = {getEmployees}
+const getEmployeesById = (req, res) => {
+    res.send('getting employees...')
+};
+
+const getEmployeesByFirstName = (req,res) => {
+
+}
+
+module.exports = {
+    defaultRoute,
+    getEmployees,
+    getEmployeesById,
+    getEmployeesByFirstName
+}
+
