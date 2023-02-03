@@ -7,7 +7,7 @@ const defaultRoute = (req,res) => {
 }
 
 const getEmployees = (req, res) => {
-    pool.query("", (err, rows) => {
+    pool.query("SELECT * FROM employees limit 50", (err, rows) => {
         if (err) return errorOccurred(res, err)
         return res.json(rows);
     })
