@@ -4,4 +4,6 @@ const router = express.Router();
 
 router.get('/', salariesController.defaultRoute)
 
+router.post('/salaries/add', salariesController.addSalaries)
+
 module.exports = router;
