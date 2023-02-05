@@ -14,6 +14,8 @@ router.get('/employees/:id', employeesRoute)
 router.get('/employees/:fname', employeesRoute)
 
     //POST salary
-router.post('/salaries/add', salariesRoute)
+router.post('/salaries/add', salariesRoute);
+
+router.put('/salaries/update', salariesRoute);
 
 module.exports = router;
