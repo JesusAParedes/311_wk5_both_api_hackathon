@@ -12,5 +12,7 @@ router.get('/employees', employeesRoute)
 router.get('/employees/:id', employeesRoute)
     //GET employees by First Name
 router.get('/employees/:fname', employeesRoute)
+ //POST salary
+ router.post('/salaries/add', salariesRoute)
 
 module.exports = router;
