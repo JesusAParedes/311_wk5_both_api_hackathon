@@ -1,1 +1,1 @@
-
+router.put("/employees/id", employeesController.updateEmployee);
