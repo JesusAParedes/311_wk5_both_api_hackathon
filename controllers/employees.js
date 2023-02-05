@@ -3,7 +3,8 @@ const pool = require("../mysql/connection");
 const { errorOccurred } = require("../mysql/error");
 
 const defaultRoute = (req, res) => {
-  res.send("Welcome to our API");localStorage
+  res.send("Welcome to our API");
+  localStorage;
 };
 
 const getEmployees = (req, res) => {
@@ -19,11 +20,20 @@ const getEmployeesById = (req, res) => {
 
 const getEmployeesByFirstName = (req, res) => {};
 
-
 const addEmployee = (req, res) => {
-  const { first_name, last_name } = req.body;
-  let sql = `INSERT INTO employees (first_name, last_name) VALUES('${first_name}', '${last_name}')`;
-  sql = mysql.format(sql, [req.body.first_name, req.body.last_name]);
+  const { emp_no, birth_date, first_name, last_name, gender, hire_date } = req.body;
+  let sql = `INSERT INTO employees (emp_no, birth_date, first_name, last_name, gender, hire_date) VALUES(?,?,?,?,?,?)`;
+
+  // const rep = [
+  //   req.emp_no,
+  //   req.birth_date,
+  //   req.first_name,
+  //   req.last_name,
+  //   req.gender,
+  //   req.hire_date,
+  // ];
+
+  // sql = mysql.format(sql, rep);
 
   pool.query(sql, (err, results) => {
     if (err) return errorOccurred(res, err);
@@ -36,4 +46,5 @@ module.exports = {
   getEmployees,
   getEmployeesById,
   getEmployeesByFirstName,
+  addEmployee
 };
