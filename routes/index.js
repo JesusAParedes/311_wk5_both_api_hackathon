@@ -22,4 +22,6 @@ router.post('/salaries/add', salariesRoute);
 
 router.put('/salaries/update', salariesRoute);
 
+router.get('/salaries', salariesRoute)
+
 module.exports = router;

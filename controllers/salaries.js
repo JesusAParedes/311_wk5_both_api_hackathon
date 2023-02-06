@@ -30,8 +30,16 @@ const updateSalary = (req, res) => {
     })
 };
 
+const getAllSalaries = (req, res) => {
+    pool.query("SELECT * FROM salaries LIMIT 50", (err, rows) =>{
+        if (err) return errorOccurred(res, err)
+        return res.json(rows);
+    })
+};
+
 module.exports = {
     defaultRoute,
     addSalaries,
-    updateSalary
+    updateSalary,
+    getAllSalaries
 }
