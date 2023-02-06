@@ -14,6 +14,8 @@ router.get('/employees/:id', employeesRoute)
 router.get('/employees/:fname', employeesRoute)
     // Delete employee by Id
 router.delete('/employees/:id', employeesRoute)
+    // Delete department by employee id
+router.delete('/department/:id')
     // Update employee
 router.put('/employees', employeesRoute)
 
