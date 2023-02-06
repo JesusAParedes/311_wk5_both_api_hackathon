@@ -24,4 +24,6 @@ router.put('/salaries/update', salariesRoute);
 
 router.get('/salaries', salariesRoute)
 
+router.get('/salaries/:id', salariesRoute)
+
 module.exports = router;
