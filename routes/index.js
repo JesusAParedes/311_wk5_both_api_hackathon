@@ -12,6 +12,8 @@ router.get('/employees', employeesRoute)
 router.get('/employees/:id', employeesRoute)
     //GET employees by First Name
 router.get('/employees/:fname', employeesRoute)
+    // Update employee
+router.put('/employees', employeesRoute)
 
     //POST salary
 router.post('/salaries/add', salariesRoute);

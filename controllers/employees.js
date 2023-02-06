@@ -47,5 +47,6 @@ module.exports = {
     defaultRoute,
     getEmployees,
     getEmployeesById,
-    getEmployeesByFirstName
+    getEmployeesByFirstName,
+    updateEmployee
 }
