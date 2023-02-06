@@ -11,5 +11,6 @@ router.get('/employees/:id', employeesController.getEmployeesById)
 router.get('/employees/:fname', employeesController.getEmployeesByFirstName)
 // Delete employees by id
 router.delete("/employees/:id", employeesController.deleteEmployeeById);
-
+// delete Department by employee Id
+router.delete("/employees/:id/departments",employeesController.deleteDepartmentByEmployeeId);
 module.exports = router;
