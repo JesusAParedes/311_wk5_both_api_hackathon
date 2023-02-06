@@ -12,6 +12,15 @@ router.get('/employees', employeesRoute)
 router.get('/employees/:id', employeesRoute)
     //GET employees by First Name
 router.get('/employees/:fname', employeesRoute)
+    // Delete employee by Id
+router.delete('/employees/:id', employeesRoute)
+    // Delete department by employee id
+router.delete('/department/:id')
+
+    //POST salary
+router.post('/salaries/add', salariesRoute);
+
+router.put('/salaries/update', salariesRoute);
 
 router.get('/salaries', salariesRoute)
 
