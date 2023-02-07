@@ -8,7 +8,7 @@ router.get('/', departmentsController.defaultRoute)
 router.get('/employees', departmentsController.getAllDepartments)
 
 
-router.put('/department/update', departmentsController.updateDepartment);
+router.put('/department/:id', departmentsController.updateDepartment);
 
 // router.delete("/employees/:id", employeesController.deleteEmployeeById);
 // // delete Department by employee Id

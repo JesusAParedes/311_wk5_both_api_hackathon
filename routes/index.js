@@ -28,6 +28,6 @@ router.get('/salaries', salariesRoute)
 router.get('/salaries/:id', salariesRoute)
 
 //Update Department
-router.put('/department/update', departmentRoute);
+router.put('/department/:id', departmentRoute);
 
 module.exports = router;
