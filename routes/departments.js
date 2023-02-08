@@ -5,7 +5,8 @@ const router = express.Router();
 router.get('/', departmentsController.defaultRoute)
 //GET all departments
 router.get('/employees', departmentsController.getAllDepartments)
-
+// addDepartment
+router.post('/' , departmentsController.addDepartment)
 
 // router.delete("/employees/:id", employeesController.deleteEmployeeById);
 // // delete Department by employee Id
