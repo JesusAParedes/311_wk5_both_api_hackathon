@@ -51,6 +51,7 @@ const deleteDepartmentByEmployeeId = (req, res) => {
   });
 };
 
+// Add Employee controller method
 const addEmployee = (req, res) => {
   pool.query({
     sql: "INSERT INTO employees (emp_no, birth_date, first-name, last_name, gender, hire_date) VALUE (?, ?, ?, ?, ?, ?)",
@@ -61,6 +62,17 @@ const addEmployee = (req, res) => {
   })
 };
 
+// Add updateEmployee controller method
+const updateEmployee = (req, res) => {
+  let sql = "UPDATE employees SET first_name = ?, last_name = ? WHERE ?? = ?";
+  let rep = [req.params.first_name, req.params.last_name, "emp_no", req.params.id];
+  sql = mysql.format(sql, rep);
+
+  pool.query(sql, (err, result) => {
+    if (err) return errorOccurred(res, err);
+    res.json(result);
+  });
+};
 
 module.exports = {
   defaultRoute,
@@ -68,6 +80,7 @@ module.exports = {
   getEmployeesById,
   getEmployeesByFirstName,
   deleteEmployeeById,
-  deleteDepartmentByEmployeeId, 
-  addEmployee 
+  deleteDepartmentByEmployeeId,
+  addEmployee,
+  updateEmployee
 };
