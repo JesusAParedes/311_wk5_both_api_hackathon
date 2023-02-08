@@ -3,6 +3,7 @@ const { appendFile } = require('fs')
 const router = express.Router()
 const employeesRoute = require('./employees.js')
 const salariesRoute = require('./salaries.js')
+const departmentsRoute = require('./departments.js')
 
     //Default Route
 router.get('/', employeesRoute)
@@ -15,7 +16,7 @@ router.get('/employees/:fname', employeesRoute)
     // Delete employee by Id
 router.delete('/employees/:id', employeesRoute)
     // Delete department by employee id
-router.delete('/department/:id')
+router.delete('/departments/:dept_no', departmentsRoute)
 
     //POST salary
 router.post('/salaries/add', salariesRoute);

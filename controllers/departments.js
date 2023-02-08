@@ -13,13 +13,20 @@ const getAllDepartments = (req, res) => {
   });
 };
 
+const deleteDepartmentById = (req, res) => {
+  let sql = "DELETE FROM ?? WHERE ?? = ?";
+  let rep = ['departments', 'dept_no', req.params.dept_no];
+  sql = mysql.format(sql,rep);
 
-
-
-
+  pool.query(sql, (err, rows) => {
+    if(err) return errorOccurred(res, err)
+      res.send('Department deleted!');
+  })
+};
 
   module.exports = {
     defaultRoute,
-    getAllDepartments
+    getAllDepartments,
+    deleteDepartmentById
   };
   
