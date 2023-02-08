@@ -13,6 +13,18 @@ const getAllDepartments = (req, res) => {
   });
 };
 
+
+const deleteDepartmentById = (req, res) => {
+  let sql = "DELETE FROM ?? WHERE ?? = ?";
+  let rep = ['departments', 'dept_no', req.params.dept_no];
+  sql = mysql.format(sql,rep);
+
+  pool.query(sql, (err, rows) => {
+    if(err) return errorOccurred(res, err)
+      res.send('Department deleted!');
+  })
+};
+
 const updateDepartment = (req, res) => {
   //sql statement
   let sql = "UPDATE dept_emp JOIN departments ON dept_emp.dept_no = departments.dept_no JOIN employees ON employees.emp_no = dept_emp.emp_no SET dept_emp.dept_no = ? WHERE dept_emp.emp_no = ? ";
@@ -28,10 +40,10 @@ const updateDepartment = (req, res) => {
 };
 
 
-
   module.exports = {
     defaultRoute,
     getAllDepartments,
+    deleteDepartmentById
     updateDepartment
   };
   
