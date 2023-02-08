@@ -30,8 +30,28 @@ const updateSalary = (req, res) => {
     })
 };
 
+const getAllSalaries = (req, res) => {
+    pool.query("SELECT * FROM salaries LIMIT 50", (err, rows) =>{
+        if (err) return errorOccurred(res, err)
+        return res.json(rows);
+    })
+};
+
+const getSalaryByEmployeeId = (req, res) => {
+    let sql = "SELECT * FROM ?? WHERE ?? = ?";
+    let rep = ['salaries', 'emp_no', req.params.id];
+    sql = mysql.format(sql, rep);
+
+    pool.query(sql, (err, rows) => {
+        if(err) return errorOccurred(res, err)
+        res.json(rows);
+    })
+}
+
 module.exports = {
     defaultRoute,
     addSalaries,
-    updateSalary
+    updateSalary,
+    getAllSalaries,
+    getSalaryByEmployeeId
 }
