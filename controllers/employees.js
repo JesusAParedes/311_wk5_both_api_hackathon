@@ -51,11 +51,23 @@ const deleteDepartmentByEmployeeId = (req, res) => {
   });
 };
 
+const addEmployee = (req, res) => {
+  pool.query({
+    sql: "INSERT INTO employees (emp_no, birth_date, first-name, last_name, gender, hire_date) VALUE (?, ?, ?, ?, ?, ?)",
+    values: [req.body.emp_no, req.body.birth_date, req.body.first_name, req.body.last_name, req.body.gender, req.body.hire_date]},
+    (err) => {
+      if (err) return errorOccurred(res,err)
+      res.send("Employee Added");
+  })
+};
+
+
 module.exports = {
   defaultRoute,
   getEmployees,
   getEmployeesById,
   getEmployeesByFirstName,
   deleteEmployeeById,
-  deleteDepartmentByEmployeeId
+  deleteDepartmentByEmployeeId, 
+  addEmployee 
 };
