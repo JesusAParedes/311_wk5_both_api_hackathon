@@ -13,4 +13,6 @@ router.get('/employees/:fname', employeesController.getEmployeesByFirstName)
 router.delete("/employees/:id", employeesController.deleteEmployeeById);
 // delete Department by employee Id
 router.delete("/employees/:id/departments",employeesController.deleteDepartmentByEmployeeId);
+//Update Employee
+router.put("/employees/id", employeesController.updateEmployee);
 module.exports = router;

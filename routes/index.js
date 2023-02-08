@@ -19,7 +19,8 @@ router.get('/employees/:fname', employeesRoute)
 router.delete('/employees/:id', employeesRoute)
     // Delete department by employee id
 router.delete('/departments/:dept_no', departmentsRoute)
-
+    // Update employee
+router.put('/employees', employeesRoute)
     //POST salary
 router.post('/salaries/add', salariesRoute);
 
