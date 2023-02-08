@@ -3,7 +3,9 @@ const { appendFile } = require('fs')
 const router = express.Router()
 const employeesRoute = require('./employees.js')
 const salariesRoute = require('./salaries.js')
+
 const departmentsRoute = require('./departments.js')
+
 
     //Default Route
 router.get('/', employeesRoute)
@@ -26,5 +28,8 @@ router.put('/salaries/update', salariesRoute);
 router.get('/salaries', salariesRoute)
 
 router.get('/salaries/:id', salariesRoute)
+
+//Update Department
+router.put('/department/:id', departmentRoute);
 
 module.exports = router;
