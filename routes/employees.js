@@ -1,3 +1,4 @@
+
 const express = require('express');
 const employeesController = require('../controllers/employees');
 const router = express.Router();
@@ -9,6 +10,8 @@ router.get('/employees', employeesController.getEmployees)
 router.get('/employees/:id', employeesController.getEmployeesById)
 //GET employees by First Name
 router.get('/employees/:fname', employeesController.getEmployeesByFirstName)
+//PUT employee , Adding employee
+router.post('/', employeesController.addEmployee)
 // Delete employees by id
 router.delete("/employees/:id", employeesController.deleteEmployeeById);
 // delete Department by employee Id
@@ -16,3 +19,4 @@ router.delete("/employees/:id/departments",employeesController.deleteDepartmentB
 //Update Employee
 router.put("/employees/id", employeesController.updateEmployee);
 module.exports = router;
+
