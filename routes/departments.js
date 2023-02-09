@@ -12,7 +12,8 @@ router.get('/departments', departmentsController.getAllDepartments)
 router.delete("/departments/:dept_no", departmentsController.deleteDepartmentById);
 
 router.get('/employees', departmentsController.getAllDepartments)
-
+// addDepartment
+router.post('/' , departmentsController.addDepartment)
 
 router.put('/department/:id', departmentsController.updateDepartment);
 

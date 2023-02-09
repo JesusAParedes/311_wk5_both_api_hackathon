@@ -13,6 +13,18 @@ const getAllDepartments = (req, res) => {
   });
 };
 
+const addDepartment = (req, res) => {
+  pool.query(
+    {
+      sql: "INSERT INTO departments (dept_no, , dept_name) VALUE (?, ?);",
+      values: [req.params.dept_no, req.params.dept_name],
+    },
+    (err) => {
+      if (err) return errorOccurred(res, err);
+      res.send("Department Added");
+    }
+  );
+};
 
 const deleteDepartmentById = (req, res) => {
   let sql = "DELETE FROM ?? WHERE ?? = ?";
@@ -38,12 +50,12 @@ const updateDepartment = (req, res) => {
       res.send("Employee's Department updated");
   })
 };
+module.exports = {
+  defaultRoute,
+  getAllDepartments,
+  addDepartment,
+  deleteDepartmentById,
+  updateDepartment
+};
 
-
-  module.exports = {
-    defaultRoute,
-    getAllDepartments,
-    deleteDepartmentById
-    updateDepartment
-  };
-  
+ 
