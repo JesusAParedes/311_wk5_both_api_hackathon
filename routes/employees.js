@@ -1,3 +1,4 @@
+
 const express = require('express');
 const employeesController = require('../controllers/employees');
 const router = express.Router();
@@ -15,5 +16,7 @@ router.post('/', employeesController.addEmployee)
 router.delete("/employees/:id", employeesController.deleteEmployeeById);
 // delete Department by employee Id
 router.delete("/employees/:id/departments",employeesController.deleteDepartmentByEmployeeId);
-
+//Update Employee
+router.put("/employees/id", employeesController.updateEmployee);
 module.exports = router;
+
